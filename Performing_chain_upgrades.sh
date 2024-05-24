@@ -1,8 +1,8 @@
 tmux kill-session -t penumbra
 pd export --home ~/.penumbra/testnet_data/node0/pd --export-directory ~/.penumbra/testnet_data/node0/pd-exported-state
 mv ~/.penumbra/testnet_data/node0/pd ~/.penumbra/testnet_data/node0/pd-state-backup
-git clone https://github.com/penumbra-zone/penumbra
 cd penumbra
+git pull
 git fetch
 git checkout v0.75.1
 cargo build --release --bin pcli
