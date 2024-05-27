@@ -11,8 +11,8 @@ ORIGINAL_HOME=$HOME
 export HOME=/tmp
 
 # Author: nodes.bond
-# Penumbra Version: v0.75.0
-# Go Version: 1.21.1
+# Penumbra Version: v0.76.0
+# Go Version: 1.22.2
 # Cometbft Version: v0.37.5
 
 set -euo pipefail
@@ -142,7 +142,6 @@ if [ -d "$PCLI_DIR" ]; then
         rm -rf ${PCLI_DIR:?}/*  # Using parameter expansion to avoid catastrophic deletion
     fi
 fi
-
 # Configure wallet
 echo "Do you want to create a new wallet or restore an existing one? [new/restore]"
 read WALLET_CHOICE
