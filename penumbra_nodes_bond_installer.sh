@@ -63,8 +63,8 @@ sudo apt-get install tmux
 # Check and install Go if not present
 if ! command -v go > /dev/null; then
     echo "Go is not installed. Installing Go..."
-    wget https://dl.google.com/go/go1.21.1.linux-amd64.tar.gz
-    sudo tar -xvf go1.21.1.linux-amd64.tar.gz -C /usr/local
+    wget https://dl.google.com/go/go1.22.2.linux-amd64.tar.gz
+    sudo tar -xvf go1.22.2.linux-amd64.tar.gz -C /usr/local
     export PATH=$PATH:/usr/local/go/bin
 fi
 
@@ -76,7 +76,7 @@ source $HOME/.cargo/env
 git clone https://github.com/penumbra-zone/penumbra
 cd penumbra
 git fetch
-git checkout v0.75.0
+git checkout v0.76.0
 cargo build --release --bin pcli
 cargo build --release --bin pd
 
@@ -131,7 +131,7 @@ echo "Using IP address: $IP_ADDRESS"
 
 cd /root/penumbra
 ./target/release/pd testnet unsafe-reset-all
-./target/release/pd testnet join --external-address $IP_ADDRESS:26656 --moniker "$MY_NODE_NAME"
+./target/release/pd testnet join --external-address $IP_ADDRESS:26656 --moniker "$MY_NODE_NAME" --archive-url "https://snapshots.penumbra.zone/testnet/pd-migrated-state-75-76.tar.gz"
 
 # Handle non-empty pcli directory
 PCLI_DIR="/tmp/.local/share/pcli"
